@@ -7,15 +7,16 @@ All of the datasets are queried via HTTP(s) from the data services
 they are published in:  you do *not* need to download any of the eReefs
 data files to your local environment to make these work.
 
+Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) library, which is an open-source library that assists Python developers to work with the results of [CSIRO EMS](https://github.com/csiro-coasts/ems/) models like eReefs GBR4, GBR1 and RECOM model results.
+
 - [Notebooks Directory](#notebooks-directory)
   - [Discovering eReefs Datasets (data-discovery.ipynb)](#discovering-ereefs-datasets-data-discoveryipynb)
-  - [Examples that use the emsarray library](#examples-that-use-the-emsarray-library)
-    - [Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)](#discovering-ereefs-dataset-dimensions-dataset-dimentionsipynb)
-    - [Plotting eReefs model results (plot.ipynb)](#plotting-ereefs-model-results-plotipynb)
-    - [clip.ipynb](#clipipynb)
-    - [bokeh.ipynb](#bokehipynb)
-    - [transect.ipynb](#transectipynb)
-    - [animation.ipynb](#animationipynb)
+  - [Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)](#discovering-ereefs-dataset-dimensions-dataset-dimentionsipynb)
+  - [Plotting eReefs model results with matplotlib (plot.ipynb)](#plotting-ereefs-model-results-with-matplotlib-plotipynb)
+  - [Plotting eReefs model results with bokeh (bokeh.ipynb)](#plotting-ereefs-model-results-with-bokeh-bokehipynb)
+  - [Clipping eReefs datasets (clip.ipynb)](#clipping-ereefs-datasets-clipipynb)
+  - [Plotting eReefs transects (transect.ipynb)](#plotting-ereefs-transects-transectipynb)
+  - [Animating eReefs model results (animation.ipynb)](#animating-ereefs-model-results-animationipynb)
     - [Simulated true colour from eReefs optical model variables (true-colour.ipynb)](#simulated-true-colour-from-ereefs-optical-model-variables-true-colouripynb)
 - [How to run these notebooks](#how-to-run-these-notebooks)
   - [Use the ARDC's Jupyter Notebook Service](#use-the-ardcs-jupyter-notebook-service)
@@ -27,53 +28,72 @@ data files to your local environment to make these work.
 
 ### Discovering eReefs Datasets (data-discovery.ipynb)
 
+[data-discovery.ipynb](./data-discovery.ipynb)
+
 This notebook is more like documentation...
 
 It explains how to identify the OPeNDAP endpoint URL for any eReefs netCDF dataset using the CSIRO eReefs Data Explorer.  URLs of this type are using in most of the other notebooks in the suite.
 
-[data-discovery.ipynb](./data-discovery.ipynb)
-
 &nbsp;
 
-### Examples that use the emsarray library
-
-[emsarray](https://emsarray.readthedocs.io/) is an open-source library that assists Python developers to work with the results of [CSIRO EMS](https://github.com/csiro-coasts/ems/) models like eReefs GBR4, GBR1 and RECOM model results, and
-also other CF-compliant gridded netCDF data.
-
-These examples are adapted from similar ones in the [emsarray-notebooks](https://github.com/csiro-coasts/emsarray-notebooks/tree/master) repository, but have been re-worked to use eReefs datasets directly from their data provider nodes.
-
-#### Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)
-
-This notebook demonstrates how to extract information about the spatial and temporal dimensions of an eReefs dataset.
+### Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)
 
 [dataset-dimensions.ipynb](./dataset-dimensions.ipynb)
 
+This notebook demonstrates how to extract information about the spatial and temporal dimensions of an eReefs dataset.
+
 &nbsp;
 
-#### Plotting eReefs model results (plot.ipynb)
-
-This notebook shows the basics of using `emsarray` to plot variables extracted from eReefs datasets on a map. It uses the `cartopy` and `matplotlib` libraries.
+### Plotting eReefs model results with matplotlib (plot.ipynb)
 
 [plot.ipynb](./plot.ipynb)
 
+This notebook shows the basics of using `emsarray` and `matplotlib` to plot variables extracted from eReefs datasets on a map.
+
+It is adapted from the [similar example in the `emsarray-notebooks` repository](hhttps://github.com/csiro-coasts/emsarray-notebooks/blob/master/plot.ipynb).
+
 &nbsp;
 
-#### [clip.ipynb](./clip.ipynb)
+### Plotting eReefs model results with bokeh (bokeh.ipynb)
+
+[bokeh.ipynb](./bokeh.ipynb)
+
+This notebook also plots eReefs data on a map, but uses the popular `bokeh`
+library to do so.
+
+It is adapted from the [similar example in the `emsarray-notebooks` repository](hhttps://github.com/csiro-coasts/emsarray-notebooks/blob/master/bokeh.ipynb).
+
+&nbsp;
+
+### Clipping eReefs datasets (clip.ipynb)
+
+[clip.ipynb](./clip.ipynb)
 
 This notebook shows how to use `emsarray` to extract a spatial subset of a large eReefs dataset, that is then plotted on a map using `matplotlib`.
 
-#### [bokeh.ipynb](./bokeh.ipynb)
+It is adapted from the [similar example in the `emsarray-notebooks` repository](hhttps://github.com/csiro-coasts/emsarray-notebooks/blob/master/clip.ipynb).
 
-This notebook also plots eReefs data on a map, but uses the popular `bokeh`
-library to do so rather than `matplotlib`.
+&nbsp;
 
-#### [transect.ipynb](./transect.ipynb)
+### Plotting eReefs transects (transect.ipynb)
 
-This notebook shows how to extract values from an eReefs dataset along a known spatial transect and display those on a transect plot.
+[transect.ipynb](./transect.ipynb)
 
-#### [animation.ipynb](./animation.ipynb)
+This notebook shows how to extract values from an eReefs dataset along a predefined spatial transect, either as a line chart for a single elevation, or as a vertical cross-section of the model results.
 
-This notebook demonstrates how to use emsarray to render animations of eReefs dataset variablesome simple animations that emsarray can generate. The animations can be across time, or across another axis such as depth.
+It is adapted from the [similar example in the `emsarray-notebooks` repository](hhttps://github.com/csiro-coasts/emsarray-notebooks/blob/master/transect.ipynb).
+
+&nbsp;
+
+### Animating eReefs model results (animation.ipynb)
+
+[animation.ipynb](./animation.ipynb)
+
+This notebook demonstrates how to use emsarray to render animations of eReefs dataset variables. The animations can be across time, or across another axis such as depth.
+
+It is adapted from the [similar example in the `emsarray-notebooks` repository](hhttps://github.com/csiro-coasts/emsarray-notebooks/blob/master/animation.ipynb).
+
+&nbsp;
 
 #### Simulated true colour from eReefs optical model variables (true-colour.ipynb)
 
