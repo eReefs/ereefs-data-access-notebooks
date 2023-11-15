@@ -8,8 +8,9 @@ they are published in:  you do *not* need to download any of the eReefs
 data files to your local environment to make these work.
 
 - [Notebooks Directory](#notebooks-directory)
+  - [Discovering eReefs Datasets (data-discovery.ipynb)](#discovering-ereefs-datasets-data-discoveryipynb)
   - [Examples that use the emsarray library](#examples-that-use-the-emsarray-library)
-    - [plot.ipynb](#plotipynb)
+    - [Plotting eReefs model results (plot.ipynb)](#plotting-ereefs-model-results-plotipynb)
     - [clip.ipynb](#clipipynb)
     - [bokeh.ipynb](#bokehipynb)
     - [transect.ipynb](#transectipynb)
@@ -25,6 +26,16 @@ data files to your local environment to make these work.
 
 ## Notebooks Directory
 
+### Discovering eReefs Datasets (data-discovery.ipynb)
+
+This notebook is more like documentation...
+
+It explains how to identify the OPeNDAP endpoint URL for any eReefs netCDF dataset using the CSIRO eReefs Data Explorer.  URLs of this type are using in most of the other notebooks in the suite.
+
+[data-discovery.ipynb](./data-discovery.ipynb)
+
+&nbsp;
+
 ### Examples that use the emsarray library
 
 [emsarray](https://emsarray.readthedocs.io/) is an open-source library that assists Python developers to work with the results of [CSIRO EMS](https://github.com/csiro-coasts/ems/) models like eReefs GBR4, GBR1 and RECOM model results, and
@@ -32,9 +43,13 @@ also other CF-compliant gridded netCDF data.
 
 These examples are adapted from similar ones in the [emsarray-notebooks](https://github.com/csiro-coasts/emsarray-notebooks/tree/master) repository, but have been re-worked to use eReefs datasets directly from their data provider nodes.
 
-#### [plot.ipynb](./plot.ipynb)
+#### Plotting eReefs model results (plot.ipynb)
 
 This notebook shows the basics of using `emsarray` to plot variables extracted from eReefs datasets on a map. It uses the `cartopy` and `matplotlib` libraries.
+
+[plot.ipynb](./plot.ipynb)
+
+&nbsp;
 
 #### [clip.ipynb](./clip.ipynb)
 
@@ -56,6 +71,7 @@ This notebook demonstrates how to use emsarray to render animations of eReefs da
 #### Simulated true colour from eReefs optical model variables (true-colour.ipynb)
 
 This notebook shows how to combine simulated remote sensing reflctance variables from an eReefs Biogeochemistry and Sediments dataset to create a simulated true-colour image of the GBR. The resulting image simulates what remote sensing observations of the GBR might look like to the Ocean and Land Colour Instrument (OLCI) on the Sentinel-3A or Sentinel-3B satellites.
+
 [true-colour.ipynb](./true-colour.ipynb)
 
 &nbsp;
