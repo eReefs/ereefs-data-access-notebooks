@@ -12,6 +12,10 @@ authors:
     family-names: Wildie
     affiliation: Commonwealth Scientific and Industrial Research Organisation
     email: Matt.Wildie@csiro.au
+  - given-names: Sharon
+    family-names: Tickell
+    affiliation: Commonwealth Scientific and Industrial Research Organisation
+    email: Sharon.Tickell@csiro.au
 references:
   - type: generic
     publisher:
