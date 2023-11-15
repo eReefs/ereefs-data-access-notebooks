@@ -5,6 +5,7 @@ dependencies:
   - jupyterlab
   - ipympl
   - jupyter_bokeh
+  - scipy
 
   - emsarray ~=0.6.1
   - numpy ~=1.26.0
