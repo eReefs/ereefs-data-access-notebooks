@@ -10,14 +10,13 @@ data files to your local environment to make these work.
 - [Notebooks Directory](#notebooks-directory)
   - [Discovering eReefs Datasets (data-discovery.ipynb)](#discovering-ereefs-datasets-data-discoveryipynb)
   - [Examples that use the emsarray library](#examples-that-use-the-emsarray-library)
+    - [Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)](#discovering-ereefs-dataset-dimensions-dataset-dimentionsipynb)
     - [Plotting eReefs model results (plot.ipynb)](#plotting-ereefs-model-results-plotipynb)
     - [clip.ipynb](#clipipynb)
     - [bokeh.ipynb](#bokehipynb)
     - [transect.ipynb](#transectipynb)
     - [animation.ipynb](#animationipynb)
     - [Simulated true colour from eReefs optical model variables (true-colour.ipynb)](#simulated-true-colour-from-ereefs-optical-model-variables-true-colouripynb)
-  - [Examples that use the eReefs netCDF Web Processing Service](#examples-that-use-the-ereefs-netcdf-web-processing-service)
-    - [simpledpn.ipynb](#simpledpnipynb)
 - [How to run these notebooks](#how-to-run-these-notebooks)
   - [Use the ARDC's Jupyter Notebook Service](#use-the-ardcs-jupyter-notebook-service)
   - [Run a local Jupyter-Lite docker container](#run-a-local-jupyter-lite-docker-container)
@@ -42,6 +41,14 @@ It explains how to identify the OPeNDAP endpoint URL for any eReefs netCDF datas
 also other CF-compliant gridded netCDF data.
 
 These examples are adapted from similar ones in the [emsarray-notebooks](https://github.com/csiro-coasts/emsarray-notebooks/tree/master) repository, but have been re-worked to use eReefs datasets directly from their data provider nodes.
+
+#### Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)
+
+This notebook demonstrates how to extract information about the spatial and temporal dimensions of an eReefs dataset.
+
+[dataset-dimensions.ipynb](./dataset-dimensions.ipynb)
+
+&nbsp;
 
 #### Plotting eReefs model results (plot.ipynb)
 
@@ -75,16 +82,6 @@ This notebook shows how to combine simulated remote sensing reflctance variables
 [true-colour.ipynb](./true-colour.ipynb)
 
 &nbsp;
-
-### Examples that use the eReefs netCDF Web Processing Service
-
-One of the applications we host as part of the eReefs platform is a netCDF Web Processing service which allows you to request some standard eReefs visualisations via a single HTTP Query: the [CSIRO eReefs Visportal](https://portal.ereefs.info) makes heavy use of that service to render plots and animations of data.
-
-These examples show how to invoke that service.
-
-#### [simpledpn.ipynb](./NCWPSExamples/simpledpn.ipynb)
-
-Invoke the eReefs ncWPS to retrieve information about eReefs dataset dimensions.
 
 ---
 
