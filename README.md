@@ -14,9 +14,9 @@ data files to your local environment to make these work.
     - [bokeh.ipynb](#bokehipynb)
     - [transect.ipynb](#transectipynb)
     - [animation.ipynb](#animationipynb)
+    - [Simulated true colour from eReefs optical model variables (true-colour.ipynb)](#simulated-true-colour-from-ereefs-optical-model-variables-true-colouripynb)
   - [Examples that use the eReefs netCDF Web Processing Service](#examples-that-use-the-ereefs-netcdf-web-processing-service)
     - [simpledpn.ipynb](#simpledpnipynb)
-    - [truecolour.ipynb](#truecolouripynb)
 - [How to run these notebooks](#how-to-run-these-notebooks)
   - [Use the ARDC's Jupyter Notebook Service](#use-the-ardcs-jupyter-notebook-service)
   - [Run a local Jupyter-Lite docker container](#run-a-local-jupyter-lite-docker-container)
@@ -53,6 +53,11 @@ This notebook shows how to extract values from an eReefs dataset along a known s
 
 This notebook demonstrates how to use emsarray to render animations of eReefs dataset variablesome simple animations that emsarray can generate. The animations can be across time, or across another axis such as depth.
 
+#### Simulated true colour from eReefs optical model variables (true-colour.ipynb)
+
+This notebook shows how to combine simulated remote sensing reflctance variables from an eReefs Biogeochemistry and Sediments dataset to create a simulated true-colour image of the GBR. The resulting image simulates what remote sensing observations of the GBR might look like to the Ocean and Land Colour Instrument (OLCI) on the Sentinel-3A or Sentinel-3B satellites.
+[true-colour.ipynb](./true-colour.ipynb)
+
 &nbsp;
 
 ### Examples that use the eReefs netCDF Web Processing Service
@@ -64,13 +69,6 @@ These examples show how to invoke that service.
 #### [simpledpn.ipynb](./NCWPSExamples/simpledpn.ipynb)
 
 Invoke the eReefs ncWPS to retrieve information about eReefs dataset dimensions.
-
-#### [truecolour.ipynb](./NCWPSExamples/truecolour.ipynb)
-
-Invoke the eReefs ncWPS to combine the reflectance variables from an eReefs Biogeochemistry and Sediments dataset into a simulated true colour image.
-
-This image simulates what remote sensing observations of the GBR might look like
-to a satellite like the Sentinel-3 Ocean and Land Colour Instrument. (OLCI)
 
 ---
 
