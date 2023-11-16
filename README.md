@@ -12,12 +12,13 @@ Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) 
 - [Notebooks Directory](#notebooks-directory)
   - [Discovering eReefs Datasets (data-discovery.ipynb)](#discovering-ereefs-datasets-data-discoveryipynb)
   - [Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)](#discovering-ereefs-dataset-dimensions-dataset-dimentionsipynb)
+  - [Extracting a timeseries from eReefs model results (timeseries.ipynb)](#extracting-a-timeseries-from-ereefs-model-results-timeseriesipynb)
   - [Plotting eReefs model results with matplotlib (plot.ipynb)](#plotting-ereefs-model-results-with-matplotlib-plotipynb)
   - [Plotting eReefs model results with bokeh (bokeh.ipynb)](#plotting-ereefs-model-results-with-bokeh-bokehipynb)
   - [Clipping eReefs datasets (clip.ipynb)](#clipping-ereefs-datasets-clipipynb)
   - [Plotting eReefs transects (transect.ipynb)](#plotting-ereefs-transects-transectipynb)
   - [Animating eReefs model results (animation.ipynb)](#animating-ereefs-model-results-animationipynb)
-    - [Simulated true colour from eReefs optical model variables (true-colour.ipynb)](#simulated-true-colour-from-ereefs-optical-model-variables-true-colouripynb)
+  - [Simulated true colour from eReefs optical model variables (true-colour.ipynb)](#simulated-true-colour-from-ereefs-optical-model-variables-true-colouripynb)
 - [How to run these notebooks](#how-to-run-these-notebooks)
   - [Use the ARDC's Jupyter Notebook Service](#use-the-ardcs-jupyter-notebook-service)
   - [Run a local Jupyter-Lite docker container](#run-a-local-jupyter-lite-docker-container)
@@ -41,6 +42,14 @@ It explains how to identify the OPeNDAP endpoint URL for any eReefs netCDF datas
 [dataset-dimensions.ipynb](./dataset-dimensions.ipynb)
 
 This notebook demonstrates how to extract information about the spatial and temporal dimensions of an eReefs dataset.
+
+&nbsp;
+
+### Extracting a timeseries from eReefs model results (timeseries.ipynb)
+
+[timeseries.ipynb](./timeseries.ipynb)
+
+This notebook demonstrates how to extract a timeseries of variable values for spatial locations within an eReefs dataset.
 
 &nbsp;
 
@@ -95,7 +104,7 @@ It is adapted from the [similar example in the `emsarray-notebooks` repository](
 
 &nbsp;
 
-#### Simulated true colour from eReefs optical model variables (true-colour.ipynb)
+### Simulated true colour from eReefs optical model variables (true-colour.ipynb)
 
 This notebook shows how to combine simulated remote sensing reflctance variables from an eReefs Biogeochemistry and Sediments dataset to create a simulated true-colour image of the GBR. The resulting image simulates what remote sensing observations of the GBR might look like to the Ocean and Land Colour Instrument (OLCI) on the Sentinel-3A or Sentinel-3B satellites.
 
