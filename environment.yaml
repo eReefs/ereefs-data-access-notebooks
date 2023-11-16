@@ -6,6 +6,7 @@ dependencies:
   - ipympl
   - jupyter_bokeh
 
+  - python ~=3.11
   - emsarray ~=0.6.1
   - numpy ~=1.26.0
   - xarray ~=2023.09
