@@ -10,5 +10,7 @@ dependencies:
   - numpy ~=1.26.0
   - xarray ~=2023.09
   - bokeh ~=3.1.1
-  - cartopy
+  - cartopy >=0.21.1
+  - matplotlib >=3.5.2
+  - scipy
   - ffmpeg
