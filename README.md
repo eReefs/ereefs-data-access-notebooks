@@ -9,6 +9,9 @@ data files to your local environment to make these work.
 
 Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) library, which is an open-source library that assists Python developers to work with the results of [CSIRO EMS](https://github.com/csiro-coasts/ems/) models like eReefs GBR4, GBR1 and RECOM model results.
 
+- [How to run these notebooks](#how-to-run-these-notebooks)
+  - [Use the ARDC's Jupyter Notebook Service](#use-the-ardcs-jupyter-notebook-service)
+  - [Run a local Jupyter-Lite docker container](#run-a-local-jupyter-lite-docker-container)
 - [Notebooks Directory](#notebooks-directory)
   - [Discovering eReefs Datasets (data-discovery.ipynb)](#discovering-ereefs-datasets-data-discoveryipynb)
   - [Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)](#discovering-ereefs-dataset-dimensions-dataset-dimentionsipynb)
@@ -19,11 +22,72 @@ Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) 
   - [Plotting eReefs transects (transect.ipynb)](#plotting-ereefs-transects-transectipynb)
   - [Animating eReefs model results (animation.ipynb)](#animating-ereefs-model-results-animationipynb)
   - [Simulated true colour from eReefs optical model variables (true-colour.ipynb)](#simulated-true-colour-from-ereefs-optical-model-variables-true-colouripynb)
-- [How to run these notebooks](#how-to-run-these-notebooks)
-  - [Use the ARDC's Jupyter Notebook Service](#use-the-ardcs-jupyter-notebook-service)
-  - [Run a local Jupyter-Lite docker container](#run-a-local-jupyter-lite-docker-container)
 
 ---
+
+## How to run these notebooks
+
+### Use the ARDC's Jupyter Notebook Service
+
+If you are affiliated with an Australian eResearch agency and have an
+Australian Access Federation account, you can use the
+[ARDC Jupyter Notebook service](https://ardc.edu.au/services/ardc-nectar-research-cloud/ardc-jupyter-notebook-service/)
+to launch these notebooks.
+
+- log in to the service at <https://jupyterhub.rc.nectar.org.au/> with your AAF credentials.
+- Choose the `SciPy` notebook environment
+- In the launcher page, select the `terminal` application to launch.
+- In the terminal, run:
+
+  ```bash
+  # Clone the notebooks repository
+  mkdir notebooks
+  cd notebooks
+  git clone https://github.com/eReefs/ereefs-data-access-notebooks.git .
+
+  # Install dependencies into a conda environment (this can be slow!)
+  conda env create --name notebooks --file ./environment.yaml
+
+  # Make that conda environment be loaded by any new ipynb kernels:
+  python -m ipykernel install --user --name notebooks –-display-name 'eReefs notebooks'
+  ```
+
+- You should now be able to browse to all the notebooks in the `notebooks`
+  folder in the sidebar, and they should be able to find the libraries they need.
+
+  If you run into errors related to dependencies, click the kernel name on the
+  top-right of the notebook page and select the 'eReefs notebooks' kernel.
+
+
+### Run Jupyter Lab in a local conda environment.
+
+This will run the Jupyter Lab server on your local computer in a Conda environment.
+First [install miniconda](https://docs.anaconda.com/miniconda/install/)
+if you do not already have a Conda install.
+Then clone this repository:
+
+```bash
+$ git clone git@github.com:eReefs/ereefs-data-access-notebooks.git
+$ cd ereefs-data-access-notebooks
+```
+
+Create a new conda environment:
+
+```bash
+$ conda env create --name ereefs-data-access-notebooks --file environment.yaml
+```
+
+Finally, activate the conda environment and run Jupyter Lab:
+
+```bash
+$ conda activate --name ereefs-data-access-notebooks
+$ jupyter-lab
+```
+
+The Jupyter Lab interface should open in your browser.
+From here you can open, edit, and run any of the notebooks in this repository.
+
+&nbsp;
 
 ## Notebooks Directory
 
@@ -113,65 +177,3 @@ This notebook shows how to combine simulated remote sensing reflctance variables
 &nbsp;
 
 ---
-
-## How to run these notebooks
-
-### Use the ARDC's Jupyter Notebook Service
-
-If you are affiliated with an Australian eResearch agency and have an
-Australian Access Federation account, you can use the
-[ARDC Jupyter Notebook service](https://ardc.edu.au/services/ardc-nectar-research-cloud/ardc-jupyter-notebook-service/)
-to launch these notebooks.
-
-- log in to the service at <https://jupyterhub.rc.nectar.org.au/> with your AAF credentials.
-- Choose the `SciPy` notebook environment
-- In the launcher page, select the `terminal` application to launch.
-- In the terminal, run:
-
-  ```bash
-  # Clone the notebooks repository
-  mkdir notebooks
-  cd notebooks
-  git clone https://github.com/eReefs/ereefs-data-access-notebooks.git .
-
-  # Install dependencies into a conda environment (this can be slow!)
-  conda env create --name notebooks --file ./environment.yaml
-
-  # Make that conda environment be loaded by any new ipynb kernels:
-  python -m ipykernel install --user --name notebooks –display-name 'eReefs notebooks'
-  ```
-
-- You should now be able to browse to all the notebooks in the `notebooks`
-  folder in the sidebar, and they should be able to find the libraries they need.
-
-  If you run into errors related to dependencies, click the kernel name on the
-  top-right of the notebook page and select the 'eReefs notebooks' kernel.
-
-
-### Run a local Jupyter-Lite docker container
-
-This works well for development and debugging of the notebooks.
-
-```bash
-# Clone a working copy of the repository
-git clone git@github.com:eReefs/ereefs-data-access-notebooks.git
-cd ereefs-data-access-notebooks
-
-# Build the local Jupyter-Lite server
-docker compose build
-
-# Launch the Jupter-Lite server
-docker compose up
-```
-
-Watch the standard output for the server as it launches - that will
-tell you the URL that you can navigate to in your browser to run the
-notebooks, which will look something like
-<http://127.0.0.1:8888/lab?token=some-access-token>
-
-The notebooks will be available at the 'notebooks' subdirectory in the
-navigation sidebar.  They are bind-mounted from your working clone
-of the git repository, so you should be able to make edits in the repository
-and see them in the browser and vice-versa.
-
-&nbsp;
