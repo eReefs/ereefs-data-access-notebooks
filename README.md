@@ -27,37 +27,10 @@ Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) 
 
 ## How to run these notebooks
 
-### Use the ARDC's Jupyter Notebook Service
+### Launch on Binder
 
-If you are affiliated with an Australian eResearch agency and have an
-Australian Access Federation account, you can use the
-[ARDC Jupyter Notebook service](https://ardc.edu.au/services/ardc-nectar-research-cloud/ardc-jupyter-notebook-service/)
-to launch these notebooks.
-
-- log in to the service at <https://jupyterhub.rc.nectar.org.au/> with your AAF credentials.
-- Choose the `SciPy` notebook environment
-- In the launcher page, select the `terminal` application to launch.
-- In the terminal, run:
-
-  ```bash
-  # Clone the notebooks repository
-  mkdir notebooks
-  cd notebooks
-  git clone https://github.com/eReefs/ereefs-data-access-notebooks.git .
-
-  # Install dependencies into a conda environment (this can be slow!)
-  conda env create --name notebooks --file ./environment.yaml
-
-  # Make that conda environment be loaded by any new ipynb kernels:
-  python -m ipykernel install --user --name notebooks –-display-name 'eReefs notebooks'
-  ```
-
-- You should now be able to browse to all the notebooks in the `notebooks`
-  folder in the sidebar, and they should be able to find the libraries they need.
-
-  If you run into errors related to dependencies, click the kernel name on the
-  top-right of the notebook page and select the 'eReefs notebooks' kernel.
-
+Binder is an online platform that can set up an environment and run Jupyter Lab in your browser.
+[Launch the eReefs data access notebooks on Binder](https://mybinder.org/v2/gh/eReefs/ereefs-data-access-notebooks/HEAD).
 
 ### Run Jupyter Lab in a local conda environment.
 
