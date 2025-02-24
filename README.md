@@ -47,13 +47,13 @@ $ cd ereefs-data-access-notebooks
 Create a new conda environment:
 
 ```bash
-$ conda env create --name ereefs-data-access-notebooks --file environment.yaml
+$ conda env create --name ereefs-data-access-notebooks --file environment.yml
 ```
 
 Finally, activate the conda environment and run Jupyter Lab:
 
 ```bash
-$ conda activate --name ereefs-data-access-notebooks
+$ conda activate ereefs-data-access-notebooks
 $ jupyter-lab
 ```
 
