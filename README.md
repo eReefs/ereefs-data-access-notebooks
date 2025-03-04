@@ -10,8 +10,8 @@ data files to your local environment to make these work.
 Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) library, which is an open-source library that assists Python developers to work with the results of [CSIRO EMS](https://github.com/csiro-coasts/ems/) models like eReefs GBR4, GBR1 and RECOM model results.
 
 - [How to run these notebooks](#how-to-run-these-notebooks)
-  - [Use the ARDC's Jupyter Notebook Service](#use-the-ardcs-jupyter-notebook-service)
-  - [Run a local Jupyter-Lite docker container](#run-a-local-jupyter-lite-docker-container)
+  - [Launch on Binder](#launch-on-binder)
+  - [Run Jupyter Lab in a local conda environment](#run-jupyter-lab-in-a-local-conda-environment)
 - [Notebooks Directory](#notebooks-directory)
   - [Discovering eReefs Datasets (data-discovery.ipynb)](#discovering-ereefs-datasets-data-discoveryipynb)
   - [Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)](#discovering-ereefs-dataset-dimensions-dataset-dimentionsipynb)
@@ -32,7 +32,7 @@ Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) 
 Binder is an online platform that can set up an environment and run Jupyter Lab in your browser.
 [Launch the eReefs data access notebooks on Binder](https://mybinder.org/v2/gh/eReefs/ereefs-data-access-notebooks/HEAD).
 
-### Run Jupyter Lab in a local conda environment.
+### Run Jupyter Lab in a local conda environment
 
 This will run the Jupyter Lab server on your local computer in a Conda environment.
 First [install miniconda](https://docs.anaconda.com/miniconda/install/)
