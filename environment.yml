@@ -14,3 +14,6 @@ dependencies:
   - netCDF4 =1.7
   - ffmpeg
   - scipy
+  - cartopy~=0.24.0
+  - owslib~=0.33.0
+  - pillow~=11.1.0
