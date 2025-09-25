@@ -17,6 +17,7 @@ Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) 
   - [Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)](#discovering-ereefs-dataset-dimensions-dataset-dimentionsipynb)
   - [Extracting a timeseries from eReefs model results (timeseries.ipynb)](#extracting-a-timeseries-from-ereefs-model-results-timeseriesipynb)
   - [Plotting eReefs model results with matplotlib (plot.ipynb)](#plotting-ereefs-model-results-with-matplotlib-plotipynb)
+  - [Plotting eReefs model vector results with matplotlib (vectors.ipynb)](#plotting-ereefs-model-vector-results-with-matplotlib-vectorsipynb)
   - [Plotting eReefs model results with bokeh (bokeh.ipynb)](#plotting-ereefs-model-results-with-bokeh-bokehipynb)
   - [Clipping eReefs datasets (clip.ipynb)](#clipping-ereefs-datasets-clipipynb)
   - [Plotting eReefs transects (transect.ipynb)](#plotting-ereefs-transects-transectipynb)
@@ -97,6 +98,14 @@ This notebook demonstrates how to extract a timeseries of variable values for sp
 This notebook shows the basics of using `emsarray` and `matplotlib` to plot variables extracted from eReefs datasets on a map.
 
 It is adapted from the [similar example in the `emsarray-notebooks` repository](hhttps://github.com/csiro-coasts/emsarray-notebooks/blob/master/plot.ipynb).
+
+&nbsp;
+
+### Plotting eReefs model vector results with matplotlib (vectors.ipynb)
+
+[vectors.ipynb](./vectors.ipynb)
+
+This notebook shows various methods of plotting vector data using `emsarray` and `matplotlib` on a map from eReefs datasets.
 
 &nbsp;
 
