@@ -1,0 +1,17 @@
+volumes:
+  jupyter-tmp:
+
+services:
+  jupyter:
+    build:
+      context: .
+      args:
+        RUN_UID: ${RUN_UID:-1001}
+        RUN_GID: ${RUN_GID:-1001}
+    image: ereefs/data-access-notebooks:latest
+    init: true
+    ports:
+      - "8888:8888"
+    volumes:
+      - jupyter-tmp:/tmp:exec,mode=2777
+      - ${PWD}/:/opt/ereefs/
