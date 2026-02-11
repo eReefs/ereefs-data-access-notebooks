@@ -1,0 +1,20 @@
+volumes:
+  nb-user-home:
+
+services:
+  jupyter:
+    build:
+      context: .
+      args:
+        NB_GID: ${NB_GID:-1000}
+        NB_UID: ${NB_UID:-1000}
+        NB_USER: ${NB_USER:-jovyan}
+    image: ereefs/data-access-notebooks:dev
+    init: true
+    ports:
+      - "8888:8888"
+    tmpfs:
+      /tmp:exec,mode=2777
+    volumes:
+      - nb-user-home:/home/${NB_USER:-jovyan}:rw
+      - ${PWD}/:/home/${NB_USER:-jovyan}/ereefs/

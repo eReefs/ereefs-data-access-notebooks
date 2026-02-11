@@ -10,9 +10,11 @@ data files to your local environment to make these work.
 Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) library, which is an open-source library that assists Python developers to work with the results of [CSIRO EMS](https://github.com/csiro-coasts/ems/) models like eReefs GBR4, GBR1 and RECOM model results.
 
 - [How to run these notebooks](#how-to-run-these-notebooks)
-  - [Launch on Binder](#launch-on-binder)
+  - [Launch using BinderHub](#launch-using-binderhub)
+  - [Launch in a conda-enabled JupyterLab service](#launch-in-a-conda-enabled-jupyterlab-service)
   - [Run Jupyter Lab in a local conda environment](#run-jupyter-lab-in-a-local-conda-environment)
-- [Notebooks Directory](#notebooks-directory)
+  - [Launch in a local docker container on linux](#launch-in-a-local-docker-container-on-linux)
+- [Notebooks In this Repository](#notebooks-in-this-repository)
   - [Discovering eReefs Datasets (data-discovery.ipynb)](#discovering-ereefs-datasets-data-discoveryipynb)
   - [Discovering eReefs dataset dimensions (dataset-dimentions.ipynb)](#discovering-ereefs-dataset-dimensions-dataset-dimentionsipynb)
   - [Extracting a timeseries from eReefs model results (timeseries.ipynb)](#extracting-a-timeseries-from-ereefs-model-results-timeseriesipynb)
@@ -28,42 +30,118 @@ Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) 
 
 ## How to run these notebooks
 
-### Launch on Binder
+### Launch using BinderHub
 
 Binder is an online platform that can set up an environment and run Jupyter Lab in your browser.
-[Launch the eReefs data access notebooks on Binder](https://mybinder.org/v2/gh/eReefs/ereefs-data-access-notebooks/HEAD).
 
-### Run Jupyter Lab in a local conda environment
+Several BinderHub services exist and can be used to launch these notebooks:
 
-This will run the Jupyter Lab server on your local computer in a Conda environment.
-First [install miniconda](https://docs.anaconda.com/miniconda/install/)
-if you do not already have a Conda install.
-Then clone this repository:
-
-```bash
-$ git clone git@github.com:eReefs/ereefs-data-access-notebooks.git
-$ cd ereefs-data-access-notebooks
-```
-
-Create a new conda environment:
-
-```bash
-$ conda env create --name ereefs-data-access-notebooks --file environment.yml
-```
-
-Finally, activate the conda environment and run Jupyter Lab:
-
-```bash
-$ conda activate ereefs-data-access-notebooks
-$ jupyter-lab
-```
-
-The Jupyter Lab interface should open in your browser.
-From here you can open, edit, and run any of the notebooks in this repository.
+- [Launch the eReefs data access notebooks on mybinder.org](https://mybinder.org/v2/gh/eReefs/ereefs-data-access-notebooks/HEAD).
+- [Launch the eReefs data access notebooks on the ARDC Nectar Research Cloud BinderHub (requires AAF login)](https://binderhub.rc.nectar.org.au/v2/gh/eReefs/ereefs-data-access-notebooks/HEAD)
 
 &nbsp;
 
-## Notebooks Directory
+### Launch in a conda-enabled JupyterLab service
+
+You can run these notebooks in a managed Jupyter Lab service where `conda` is available.
+
+Access the Jupyter service in your browser, create a new terminal, and run the following commands:
+
+```bash
+# Clone this repository
+git clone https://github.com/eReefs/ereefs-data-access-notebooks.git
+cd reefs-data-access-notebooks
+
+# Create a dedicated 'ereefs' conda environment that has all the libraries
+# that these notebooks depend on installed in it
+conda env create --name ereefs --file ./requirements/conda-linux-64.lock
+
+# Configure this environment as a Jupyter Kernel
+conda activate ereefs
+python -m ipykernel install --user --name ereefs --display-name 'eReefs'
+```
+
+You should now be able to open and run the various `.ipynb` notebooks from this
+repository.
+
+If you encounter problems with dependencies, make sure the `eReefs` kernel
+has been selected from the list of kernel options.
+
+&nbsp;
+
+
+### Run Jupyter Lab in a local conda environment
+
+This will run the Jupyter Lab server on your *local* computer in a Conda environment.
+
+First [install miniconda](https://docs.anaconda.com/miniconda/install/)
+if you do not already have a Conda install.
+
+Then prepare the default conda environment:
+
+```bash
+# Ensure the base conda environment is up to date
+conda init bash
+conda config --remove channels defaults
+conda config --add channels conda-forge
+conda update -n base --channel conda-forge --override-channels conda
+
+# Install jupyterlab in the base conda environment
+# Install python 3.13, jupyterlab and conda-lock
+conda install --yes --channel conda-forge --override-channels jupyterlab
+
+# Launch the Jupyter Lab Server from your
+# dedicated environment
+jupyter-lab
+```
+
+The Jupyter Lab interface should open in your browser.
+From here you can follow the same steps that are given for a third-party JupyterLab service above.
+
+&nbsp;
+
+### Launch in a local docker container on linux
+
+This repository includes a [Dockerfile](./Dockerfile) and [docker-compose.yaml](./docker-compose.yaml) file which can be
+used to launch a JupyterLab server in a local docker container, as an alternative to requiring a local conda environment.
+
+Preparation:
+
+- [Install docker engine](https://docs.docker.com/engine/install/)
+- [Install docker compose](https://docs.docker.com/compose/install/linux/#install-using-the-repository)
+
+```bash
+# Clone this repository
+git clone https://github.com/eReefs/ereefs-data-access-notebooks.git
+cd reefs-data-access-notebooks
+
+# Create a .env file which identifies the uid and gid of your own account
+# (This is used to make the jupyter server run as you, so that you can bind-mount
+# and edit the notebook files.)
+rm -f .env
+echo "NB_GID=$(id -g)" >> .env
+echo "NB_UID=$(id -u)" >> .env
+
+# Build the JupyterLab server container
+docker compose build
+
+# Launch the JupyterLab server container in the foreground
+docker compose up
+```
+
+When the container launches, you should see a message in the console which tells you the
+URL for your new Jupyter server.  One of the URLs will look like `http://localhost:8888/lab?token=sometokenvaluehere`, and
+that is the URL that you should open in your browser to access the Jupyter Lab application and these notebooks.
+The value of the token is unique and should change every time you re-launch the container.
+
+*Please note that this docker container is intended for local developer use only.  It is NOT suitable for use in production,
+or for multiple developers to access at the same time.*
+
+&nbsp;
+
+---
+
+## Notebooks In this Repository
 
 ### Discovering eReefs Datasets (data-discovery.ipynb)
 

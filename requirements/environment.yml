@@ -1,0 +1,29 @@
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+    # Python platform
+  - python=3.13
+
+    # Jupyter Python Kernel and useful extensions
+  - ipykernel
+  - ipympl
+  - ipywidgets
+  - jupyter_bokeh
+
+    # emsarray and its critical dependencies
+  - emsarray==0.10.0
+  - numpy==2.4.1
+  - xarray==2025.12
+  - netCDF4==1.7.4
+
+    # charting and plotting support
+  - bokeh
+  - cartopy
+  - cfunits
+  - ffmpeg
+  - owslib
+  - pytz
+  - scipy
+  - shapely
