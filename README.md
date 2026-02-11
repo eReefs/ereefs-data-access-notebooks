@@ -10,7 +10,7 @@ data files to your local environment to make these work.
 Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) library, which is an open-source library that assists Python developers to work with the results of [CSIRO EMS](https://github.com/csiro-coasts/ems/) models like eReefs GBR4, GBR1 and RECOM model results.
 
 - [How to run these notebooks](#how-to-run-these-notebooks)
-  - [Launch on Binder](#launch-on-binder)
+  - [Launch using BinderHub](#launch-using-binderhub)
   - [Launch in a conda-enabled JupyterLab service](#launch-in-a-conda-enabled-jupyterlab-service)
   - [Run Jupyter Lab in a local conda environment](#run-jupyter-lab-in-a-local-conda-environment)
   - [Launch in a local docker container on linux](#launch-in-a-local-docker-container-on-linux)
@@ -30,10 +30,14 @@ Many of the examples depend on the [emsarray](https://emsarray.readthedocs.io/) 
 
 ## How to run these notebooks
 
-### Launch on Binder
+### Launch using BinderHub
 
 Binder is an online platform that can set up an environment and run Jupyter Lab in your browser.
-[Launch the eReefs data access notebooks on Binder](https://mybinder.org/v2/gh/eReefs/ereefs-data-access-notebooks/HEAD).
+
+Several BinderHub services exist and can be used to launch these notebooks:
+
+- [Launch the eReefs data access notebooks on mybinder.org](https://mybinder.org/v2/gh/eReefs/ereefs-data-access-notebooks/HEAD).
+- [Launch the eReefs data access notebooks on the ARDC Nectar Research Cloud BinderHub (requires AAF login)](https://binderhub.rc.nectar.org.au/v2/gh/eReefs/ereefs-data-access-notebooks/HEAD)
 
 &nbsp;
 
@@ -115,8 +119,8 @@ cd reefs-data-access-notebooks
 # (This is used to make the jupyter server run as you, so that you can bind-mount
 # and edit the notebook files.)
 rm -f .env
-echo "RUN_GID=$(id -g)" >> .env
-echo "RUN_UID=$(id -u)" >> .env
+echo "NB_GID=$(id -g)" >> .env
+echo "NB_UID=$(id -u)" >> .env
 
 # Build the JupyterLab server container
 docker compose build

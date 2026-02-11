@@ -1,13 +1,14 @@
 volumes:
-  jovyan-home:
+  nb-user-home:
 
 services:
   jupyter:
     build:
       context: .
       args:
-        RUN_UID: ${RUN_UID:-1000}
-        RUN_GID: ${RUN_GID:-1000}
+        NB_GID: ${NB_GID:-1000}
+        NB_UID: ${NB_UID:-1000}
+        NB_USER: ${NB_USER:-jovyan}
     image: ereefs/data-access-notebooks:dev
     init: true
     ports:
@@ -15,5 +16,5 @@ services:
     tmpfs:
       /tmp:exec,mode=2777
     volumes:
-      - jovyan-home:/home/jovyan:rw
-      - ${PWD}/:/home/jovyan/ereefs/
+      - nb-user-home:/home/${NB_USER:-jovyan}:rw
+      - ${PWD}/:/home/${NB_USER:-jovyan}/ereefs/
