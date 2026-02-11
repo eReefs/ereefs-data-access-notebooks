@@ -61,7 +61,7 @@ You should now be able to open and run the various `.ipynb` notebooks from this
 repository.
 
 If you encounter problems with dependencies, make sure the `eReefs` kernel
-has from the list of kernel options.
+has been selected from the list of kernel options.
 
 &nbsp;
 
